@@ -14,7 +14,7 @@ router.get('/mypost',requireLogin,(req,res)=>{
         console.log(err)
     })
 })
-router.get('/allpost',(req,res)=>{
+router.get('/allpost',requireLogin,(req,res)=>{
     Post.find().populate('postedby',"_id name")
     .then(posts=>{
         res.json({posts})
